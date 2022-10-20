@@ -18,14 +18,31 @@ body {
     border-radius: 20px;
     background-color: white;
     margin: 15px;
-    padding: 25px;
-    width: 600px;
-    height: 300px;
+    padding: 15px;
+    width: 700px;
+    height: 400px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    flex-direction: column;
     filter: drop-shadow(0 0 0.75rem rgba(133, 133, 133, 0.79));
-    
+    position: relative;
+}
+
+.top-block, .bottom-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95%;
+    width: 100%;
+}
+
+.top-block {
+    height: 95%;
+}
+
+.bottom-block {
+    gap: 30px;
 }
 
 .left-block, .right-block {
@@ -42,9 +59,41 @@ body {
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 5rem;
+    font-weight: 400;
 }
 
 h3 {
     font-weight: 200;
+}
+
+.info {
+    height: 100px;
+    width: auto
+}
+
+.info-top {
+    color: rgb(0, 207, 207);
+    font-weight: 500;
+}
+
+.round-button {
+    border-radius: 50%;
+    background-color: rgb(0, 207, 207);
+    font-weight: 400;
+    font-size: 2rem;
+    color: white;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 50px;
+    left: 95px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.round-button:hover {
+    background-color: rgba(140, 255, 255, 0.841);
+    cursor: pointer;
 }
