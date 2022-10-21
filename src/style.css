@@ -10,8 +10,10 @@ body {
     height: 100vh;
     width: 100vw;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 25px;
 }
 
 .main-block {
@@ -96,4 +98,41 @@ h3 {
 .round-button:hover {
     background-color: rgba(140, 255, 255, 0.841);
     cursor: pointer;
+}
+
+.weather-icon {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 50px;
+    top: 120px;
+}
+
+.table {
+    border-radius: 20px;
+    background-color: white;
+    margin: 15px;
+    padding: 20px;
+    width: 700px;
+    height: 400px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    filter: drop-shadow(0 0 0.75rem rgba(133, 133, 133, 0.79));
+    position: relative;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid rgba(69, 69, 69, 0.253);
+    padding-bottom: 5px;
+}
+
+.table-header-text {
+    color: rgba(94, 94, 94, 0.623);
+    font-size: 1rem;
 }
