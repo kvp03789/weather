@@ -1,5 +1,6 @@
 import './style.css';
-import { makeDom, makeTable } from './dom';
+import { makeDom, makeTable, makeDayItem, makeAllDayItems } from './dom';
+import {getLocationData} from './data';
 
-makeDom();
-makeTable();
+// makeDom("C", getLocationData());
+getLocationData("Birmingham");
