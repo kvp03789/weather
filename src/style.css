@@ -177,3 +177,10 @@ h3 {
 .day-para {
     font-size: 1rem;
 }
+
+.generic-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

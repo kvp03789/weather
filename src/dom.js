@@ -23,7 +23,7 @@ export function makeDom(units, response) {
     const weatherMainTitle = createDom("h1", "title");
     const citySubTitle = createDom("h3", "sub-title");
     const weatherSubTitle = createDom("h3", "sub-title");
-    const infoDivs = createDomMultiple("div", 6, bottomBlock, "info");
+    const infoDivs = createDomMultiple(response, bottomBlock);
     const unitsButton = createDom("div", "round-button");
     const weatherIcon = new Image();
     weatherIcon.classList.add("weather-icon");
@@ -33,7 +33,9 @@ export function makeDom(units, response) {
     citySubTitle.innerText = response.name;
     weatherMainTitle.innerText = response.weather[0].main;
     weatherSubTitle.innerText = response.weather[0].description;
-    unitsButton.innerText = `${units}` + "°";
+    if (units === "imperial") {
+        unitsButton.innerText = "F°";
+    } else {unitsButton.innerText = "C°"}
 
     makeHeader();
 
@@ -43,9 +45,9 @@ export function makeDom(units, response) {
     mainBlock.append(topBlock, bottomBlock, unitsButton, weatherIcon);
     document.querySelector(".container").append(mainBlock);
 
-    unitsButtonEvent();
-    makeTable();
-    makeAllDayItems();
+    unitsButtonEvent(response);
+    // makeTable();
+    // makeAllDayItems();
 }
 
 export function makeDayItem() {
@@ -139,21 +141,21 @@ function makeHeader() {
 
 //ADD EVENT FUNCTIONS START HERE!
 
-function unitsButtonEvent() {
+function unitsButtonEvent(response) {
     document.querySelector(".round-button").addEventListener("click", (e) => {
         if(e.target.innerText === "C°") {
-            clearDom();
-            makeDom("F");
+            getLocationData(`${response.name}`, "imperial");
+            e.target.innerText = "F°"
         } else {
-            clearDom();
-            makeDom("C");
+            getLocationData(`${response.name}`, "metric");
+            e.target.innerText = "C°"
         };
     })
 }
 
 function headerSearchEvent() {
     document.querySelector(".search-button").addEventListener("click", () => {
-        getLocationData(document.querySelector(".search").value);
+        getLocationData(document.querySelector(".search").value, "imperial");
         console.log(document.querySelector(".search").value);
     });
 }
