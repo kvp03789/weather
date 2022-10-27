@@ -28,9 +28,9 @@ export function makeDom(units, response) {
     const weatherIcon = new Image();
     weatherIcon.classList.add("weather-icon");
 
-    weatherIcon.src = Sunrise;
+    weatherIcon.src = `http://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`;
     tempMainTitle.innerText = response.main.temp;
-    citySubTitle.innerText = response.name;
+    citySubTitle.innerText = response.name + ", " + response.sys.country;
     weatherMainTitle.innerText = response.weather[0].main;
     weatherSubTitle.innerText = response.weather[0].description;
     if (units === "imperial") {
@@ -138,6 +138,7 @@ function makeHeader() {
 
     headerSearchEvent();
 }
+
 
 //ADD EVENT FUNCTIONS START HERE!
 
